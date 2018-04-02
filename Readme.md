@@ -8,7 +8,7 @@ To simplify our example, here I used brief fully-connected neural networks witho
 Please change this code to fit more advanced TensorFlow scenarios like benchmarking for more complicated networks, distributed TensorFlow (also with Google Cloud ML, Azure Batch AI, etc), TPU benchmarking, etc, etc. (This sample uses only standard functions.)
 
 ```bash
-python mnist_tf --train_file /yourdatapath/train.tfrecords --test_file /yourdatapath/test.tfrecords
+python mnist_tf.py --train_file /yourdatapath/train.tfrecords --test_file /yourdatapath/test.tfrecords
 ```
 
 - This code reads TFRecords (train.tfrecords, test.tfrecords) with batching. When you set num_epochs, the data is read num_epochs times and you can catch the end of data by OutOfRange exception. (When you don't specify num_epochs, data is read unlimited times and you must set the number of steps.)
@@ -36,7 +36,7 @@ train_batch_image, train_batch_label = tf.train.batch(
   batch_size=batch_size)
 ```
 
-- When you see data for debugging purpose, please uncomment the source code.
+- When you want to see the content of data for debugging purpose, please uncomment the source code.
 
 ```python
 # To see original data
@@ -58,7 +58,7 @@ with tf.Session() as sess:
     print(debug_label)
 ```
 
-- This code runs the data reading operation and training operation separately. You can also connect these operations and finish with only one sess.run(), but here we enable to use logits for both training data and testing (scoring) data by separating these operations.
+- This code runs data-reading operation and training operation separately. You can also connect these operations and do with only one sess.run(), but here we enable logits (with weights and bias) to be used for both training data and testing (scoring) data by separating these operations.
 
 ```python
 with tf.Session() as sess:
