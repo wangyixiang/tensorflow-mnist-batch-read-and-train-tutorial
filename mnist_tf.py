@@ -132,7 +132,7 @@ def main(_):
     # 3. run session
     #
         
-    with tf.Session() as sess:
+    with tf.Session() as sess: # use tf.train.MonitoredTrainingSession for more advanced features ...
         sess.run(tf.group(tf.initialize_all_variables(), tf.initialize_local_variables()))
         coord = tf.train.Coordinator()
         threads = tf.train.start_queue_runners(sess=sess, coord=coord) # for data batching
