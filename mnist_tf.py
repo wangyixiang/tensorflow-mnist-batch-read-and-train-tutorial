@@ -58,22 +58,15 @@ def main(_):
     test_label = tf.cast(test_exam['label'], tf.int32)
     test_batch_image, test_batch_label = tf.train.batch(
         [test_image, test_label],
-        batch_size=batch_size)
-    
-#     # for debugging... (output data)
-#     with tf.Session() as sess:
-#         sess.run(tf.initialize_all_variables())
-#         thread = tf.train.start_queue_runners(sess=sess)
-#         for i in range(3):
-#             debug_image, debug_label = sess.run([train_image, train_label])
-#             print(debug_label)
-    
-#     # for debugging... (output data)
+        batch_size=batch_size) # simply enqueue/dequeue_many with tf.FIFOQueue
+
+#     # for debugging... (check input)
 #     with tf.Session() as sess:
 #         sess.run(tf.global_variables_initializer())
 #         tf.train.start_queue_runners(sess=sess)
 #         for i in range(2):
 #             debug_image, debug_label = sess.run([train_batch_image, train_batch_label])
+#             tf.summary.image('images', debug_image)
 #             print(debug_label)
     
     #
