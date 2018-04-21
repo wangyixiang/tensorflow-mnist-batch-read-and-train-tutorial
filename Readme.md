@@ -1,10 +1,10 @@
 # TensorFlow's MNIST Tutorial with TFRecord Batch Reading
 
-This sample (mnist_tf.py) shows end-to-end implementation using well-known [MNIST dataset](http://yann.lecun.com/exdb/mnist/) (hand-writing digits image dataset) dataset and mini-batch reading from scratch (without any helper functions).
+This sample (mnist_tf.py) shows end-to-end implementation using well-known [MNIST dataset](http://yann.lecun.com/exdb/mnist/) (hand-writing digits image dataset) and mini-batch reading from scratch (without any helper functions).
 
-To simplify our example, here I use fully-connected feedforward neural network (super brief structure of network) and I don't adopt any modularity and detailed exception handling for your understanding. This code doesn't also use high-level Estimator or Experiment. (This sample uses only standard functions.)
+To simplify our example, here I use fully-connected feedforward neural net (super brief structure of network) and I don't adopt any modularity and detailed exception handling to focus on our concerns. This code doesn't also use high-level Estimator class. (This sample uses only standard low-level functions.)
 
-Please change this code to fit more advanced TensorFlow scenarios like benchmarking for more complicated networks, distributed running (also with Google Cloud ML, Azure Batch AI, etc), benchmarking by devices (incl. TPU), etc, etc.
+Please change this code to fit more advanced TensorFlow scenarios, such as benchmarking for more complicated networks, benchmarking by devices (incl. TPU), distributed running (also on Google Cloud ML, Azure Batch AI, etc), and so forth.
 
 ```bash
 python mnist_tf.py --train_file /yourdatapath/train.tfrecords --test_file /yourdatapath/test.tfrecords
@@ -58,7 +58,7 @@ with tf.Session() as sess:
     print(debug_label)
 ```
 
-- This code runs data-reading operation and training operation separately. You can also connect these operations and do with only one sess.run(), but here we enable logits (with weights and bias) to be used for both training data and testing (scoring) data by separating these operations.
+- This code runs data-reading operation and training operation separately. You can also connect these operations and do with only one sess.run(), but here we separate these operations to enable graph (with weights and bias) to be used for both training and testing (scoring).
 
 ```python
 with tf.Session() as sess:
