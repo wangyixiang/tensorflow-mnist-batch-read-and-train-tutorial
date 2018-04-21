@@ -1,16 +1,17 @@
 # TensorFlow's MNIST Tutorial with TFRecord Batch Reading
 
-A lot of tutorials encapsulate how to read TFRecord (TensorFlow native binary) with mini-batch reading by queue runner. This sample (mnist_tf.py) shows this implementation (end-to-end implementation) using well-known [MNIST dataset](http://yann.lecun.com/exdb/mnist/) (hand-writing digits image dataset) from scratch.
+This sample (mnist_tf.py) shows end-to-end implementation using well-known [MNIST dataset](http://yann.lecun.com/exdb/mnist/) (hand-writing digits image dataset) dataset and mini-batch reading from scratch (without any helper functions).
 
-To simplify our example, here I use fully-connected feed forward neural network (brief structure of network) without any modularity by functions and without detailed exception handling. This code doesn't also use high-level Estimator or Experiment.
+To simplify our example, here I use fully-connected feedforward neural network (super brief structure of network) and I don't adopt any modularity and detailed exception handling for your understanding. This code doesn't also use high-level Estimator or Experiment. (This sample uses only standard functions.)
 
-Please change this code to fit more advanced TensorFlow scenarios like benchmarking for more complicated networks, distributed TensorFlow (also with Google Cloud ML, Azure Batch AI, etc), Horovod, TPU benchmarking, etc, etc. (This sample uses only standard functions.)
+Please change this code to fit more advanced TensorFlow scenarios like benchmarking for more complicated networks, distributed running (also with Google Cloud ML, Azure Batch AI, etc), benchmarking by devices (incl. TPU), etc, etc.
 
 ```bash
 python mnist_tf.py --train_file /yourdatapath/train.tfrecords --test_file /yourdatapath/test.tfrecords
 ```
 
-- This code reads TFRecords (train.tfrecords, test.tfrecords) with batching. When you set num_epochs, the data is read num_epochs times and you can catch the end of data by OutOfRange exception. (When you don't specify num_epochs, data is read unlimited times and you must set the number of steps.)
+- This code reads TFRecords (train.tfrecords, test.tfrecords) with mini-batch reading. When you set num_epochs, the data is read num_epochs times by cyclic and you can catch the end of data (EOF) by OutOfRangeError exception. (When you don't specify num_epochs, data is read unlimited times and you must set the number of steps to stop.)    
+Here I use QueueRunner (FIFOQueue) for batch-reading, but you can also use tf.data functionalities instead.
 
 ```python
 # image - 784 (=28 x 28) elements of grey-scaled integer value [0, 1]
