@@ -2,7 +2,8 @@
 
 This sample (mnist_tf.py) shows end-to-end implementation using well-known [MNIST dataset](http://yann.lecun.com/exdb/mnist/) (hand-writing digits image dataset) and mini-batch reading from scratch (without any helper functions).
 
-To simplify our example, here I use fully-connected feedforward neural net (super brief structure of network) and I don't adopt any modularity and detailed exception handling to focus on our concerns. This code doesn't also use high-level Estimator class. (This sample uses only standard low-level functions.)
+To simplify our example, here I use fully-connected feedforward neural net (super brief structure of network) and I don't adopt any modularity and detailed exception handling to focus on our concerns. (Here I'm not expecting to win a Kaggle competition.)    
+This code doesn't also use high-level Estimator class. (This sample uses only standard low-level functions.)
 
 Please change this code to fit more advanced TensorFlow scenarios, such as benchmarking for more complicated networks, benchmarking by devices (incl. TPU), distributed running (also on Google Cloud ML, Azure Batch AI, etc), and so forth.
 
