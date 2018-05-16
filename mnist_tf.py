@@ -76,10 +76,10 @@ def main(_):
     # define input
     plchd_image = tf.placeholder(
         dtype=tf.float32,
-        shape=(batch_size, 784))
+        shape=(batch_size, 784)) # here we use fixed dimension with batch_size. (Please use undefined dimension with None in production.)
     plchd_label = tf.placeholder(
         dtype=tf.int32,
-        shape=(batch_size))
+        shape=(batch_size)) # here we use fixed dimension with batch_size. (Please use undefined dimension with None in production.)
         
     # define network and inference
     # (simple 2 fully connected hidden layer : 784->128->64->10)
