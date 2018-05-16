@@ -108,7 +108,7 @@ def main(_):
             tf.truncated_normal(
                 [64, 10],
                 stddev=1.0 / math.sqrt(float(64))),
-        name='weights')
+            name='weights')
         biases = tf.Variable(
             tf.zeros([10]),
             name='biases')
