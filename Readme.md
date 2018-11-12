@@ -4,7 +4,7 @@ This sample (mnist_tf.py) shows end-to-end implementation using well-known [MNIS
 
 You can generate dataset (train.tfrecords, test.tfrecords) using the following code.
 
-(https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/how_tos/reading_data/convert_to_records.py)[https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/how_tos/reading_data/convert_to_records.py]
+[https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/how_tos/reading_data/convert_to_records.py](https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/how_tos/reading_data/convert_to_records.py)
 
 To simplify our example, here I use fully-connected feedforward neural net (super brief structure of network) and I don't adopt any modularity and detailed exception handling to focus on our concerns. (Here I'm not expecting to win a Kaggle competition.)    
 This code doesn't also use high-level Estimator class. (This sample uses only standard low-level functions.)
