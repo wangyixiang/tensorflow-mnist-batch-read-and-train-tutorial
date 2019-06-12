@@ -185,12 +185,12 @@ if __name__ == '__main__':
     parser.add_argument(
         '--train_file',
         type=str,
-        default='/tmp/train.tfrecords',
+        default='train.tfrecords',
         help='File path for the training data.')
     parser.add_argument(
         '--test_file',
         type=str,
-        default='/tmp/test.tfrecords',
+        default='test.tfrecords',
         help='File path for the test data.')
     FLAGS, unparsed = parser.parse_known_args()
     tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
